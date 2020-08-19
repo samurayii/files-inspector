@@ -8,6 +8,10 @@
 
 обновление: `npm update -g file-inspector`
 
+вызов справки: `file-inspector -h`
+
+запуск: `file-inspector --config ./config.toml`
+
 ## Конфигурация.
 
 ### Пример конфигурационного файла config.toml:

@@ -1,6 +1,6 @@
 {
     "name": "file-inspector",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "description": "Inspecting files in the source",
     "main": "index.js",
     "directories": {
