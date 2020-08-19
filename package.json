@@ -1,10 +1,11 @@
 {
     "name": "file-inspector",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "description": "Inspecting files in the source",
     "main": "index.js",
     "directories": {
-        "lib": "lib"
+        "lib": "lib",
+        "templates": "templates"
     },
     "bin": {
         "file-inspector": "./index.js"
