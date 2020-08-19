@@ -40,6 +40,11 @@ export class Cron implements ICron {
     }
 
     run (): void {
+
+        this._logger.info("Cron started. settings:", "dev");
+        this._logger.cyan(`interval: ${this._config.interval}`, "dev");
+        this._logger.cyan(`time zone: ${this._config.time_zone}`, "dev");
+
         this._job.start();
     }
 

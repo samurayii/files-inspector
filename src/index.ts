@@ -11,3 +11,5 @@ const notifications = new Notifications(config.notifications, logger);
 const cron = new Cron(config.cron, inspector, notifications, logger);
 
 cron.run();
+
+logger.info("File inspector running");

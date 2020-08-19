@@ -45,6 +45,8 @@ export class EmailOutput implements IOutput {
 
     push (message: IMessage, attempt: number = 1): void {
 
+        this._logger.log(`[Notifications] Output "${this._config.name}", sending message"`, "dev");
+
         if (this._config.enable === true) {
 
             const email_options: TEmailOptions = {
@@ -87,10 +89,6 @@ export class EmailOutput implements IOutput {
 
                 email_options.html = result_message;
 
-                console.log(result_message);
-
-                return;
-
                 const transporter = createTransport(transport_options);
 
                 const _push = () => {
@@ -112,7 +110,7 @@ export class EmailOutput implements IOutput {
                         if (attempt > this._config.attempts) {
                             this._logger.error(`[Notifications] Output "${this._config.name}", cannot execute request. Error: ${error}. Attempts exhausted`);
                         } else {
-                            this._logger.warn(`[Notifications] Output "${this._config.name}", cannot execute request. Error: ${error}. ${this._config.attempts - attempt} attempts left. Repeat after ${this._config.attempt_interval} sec.`);
+                            this._logger.warn(`[Notifications] Output "${this._config.name}", cannot execute request. Error: ${error}. ${this._config.attempts - attempt + 1} attempts left. Repeat after ${this._config.attempt_interval} sec.`);
                             setTimeout( () => {
                                 _push();
                             }, this._config.attempt_interval * 1000);

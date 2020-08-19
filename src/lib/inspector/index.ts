@@ -32,6 +32,8 @@ export class Inspector implements IInspector {
 
     inspect (): IInspectorResult {
 
+        this._logger.info("[File-inspector] Inspection starting ...", "dev");
+
         const result: IInspectorResult = {
             count: 0,
             files: []
@@ -39,8 +41,11 @@ export class Inspector implements IInspector {
 
         const inspectFile = (file_path: string): boolean => {
 
+            this._logger.log(`[File-inspector] Check file ${file_path}`, "debug");
+
             for (const reg of this._regexp_list) {
                 if (reg.test(file_path)) {
+                    this._logger.warn(`[File-inspector] File ${file_path} deemed suspicious`, "debug");
                     return true;
                 }
             }
@@ -78,6 +83,8 @@ export class Inspector implements IInspector {
         for (const folder_path of this._config.folders) {
 
             const full_folder_path = path.resolve(process.cwd(), folder_path);
+
+            this._logger.log(`[File-inspector] Check folder ${full_folder_path}`, "debug");
 
             const files = inspectFolder(full_folder_path);
 
