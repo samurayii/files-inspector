@@ -1,0 +1,173 @@
+{
+    "type": "object",
+    "properties": {
+        "enable": {
+            "type": "boolean",
+            "default": false,
+            "env": "FILE_INSPECTOR_NOTIFICATIONS_EMAIL_ENABLE",
+            "enum": [true, false]
+        },
+        "name": {
+            "type": "string",
+            "default": "email",
+            "minLength": 1,
+            "maxLength": 32
+        },
+        "output_type": {
+            "type": "string",
+            "default": "email",
+            "enum": ["email"]
+        },
+        "attempts": {
+            "type": "integer",
+            "default": 3,
+            "env": "FILE_INSPECTOR_NOTIFICATIONS_EMAIL_ATTEMPTS",
+            "minimum": 1
+        },
+        "attempt_interval": {
+            "type": "integer",
+            "default": 5,
+            "env": "FILE_INSPECTOR_NOTIFICATIONS_EMAIL_ATTEMPT_INTERVAL",
+            "minimum": 1
+        },
+        "auth": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "default": "login",
+                    "env": "FILE_INSPECTOR_NOTIFICATIONS_EMAIL_AUTH_TYPE",
+                    "enum": ["login","oauth2"]
+                },
+                "username": {
+                    "type": "string",
+                    "default": "username",
+                    "env": "FILE_INSPECTOR_NOTIFICATIONS_EMAIL_AUTH_USERNAME",
+                    "minLength": 1,
+                    "maxLength": 64
+                },
+                "password": {
+                    "type": "string",
+                    "default": "password",
+                    "env": "FILE_INSPECTOR_NOTIFICATIONS_EMAIL_AUTH_PASSWORD",
+                    "minLength": 1,
+                    "maxLength": 64
+                },
+                "client_id": {
+                    "type": "string",
+                    "env": "FILE_INSPECTOR_NOTIFICATIONS_EMAIL_AUTH_CLIENT_ID",
+                    "minLength": 1
+                },
+                "client_secret": {
+                    "type": "string",
+                    "env": "FILE_INSPECTOR_NOTIFICATIONS_EMAIL_AUTH_CLIENT_SECRET",
+                    "minLength": 1
+                },
+                "refresh_token": {
+                    "type": "string",
+                    "env": "FILE_INSPECTOR_NOTIFICATIONS_EMAIL_AUTH_REFRESH_TOKEN",
+                    "minLength": 1
+                },
+                "access_token": {
+                    "type": "string",
+                    "env": "FILE_INSPECTOR_NOTIFICATIONS_EMAIL_AUTH_ACCESS_TOKEN",
+                    "minLength": 1
+                },
+                "expires": {
+                    "type": "integer",
+                    "env": "FILE_INSPECTOR_NOTIFICATIONS_EMAIL_AUTH_EXPIRES",
+                    "minimum": 1
+                },
+                "access_url": {
+                    "type": "string",
+                    "env": "FILE_INSPECTOR_NOTIFICATIONS_EMAIL_AUTH_ACCESS_URL",
+                    "minLength": 1
+                },
+                "service_client": {
+                    "type": "string",
+                    "env": "FILE_INSPECTOR_NOTIFICATIONS_EMAIL_AUTH_SERVICE_CLIENT",
+                    "minLength": 1
+                },
+                "private_key": {
+                    "type": "string",
+                    "env": "FILE_INSPECTOR_NOTIFICATIONS_EMAIL_AUTH_PRIVATE_KEY",
+                    "minLength": 1
+                }
+            },
+            "required": [
+                "username",
+                "password",
+                "type"
+            ]
+        },
+        "host": {
+            "type": "string",
+            "default": "smtp.localhost",
+            "env": "FILE_INSPECTOR_NOTIFICATIONS_EMAIL_HOST",
+            "minLength": 1,
+            "maxLength": 128
+        },
+        "port": {
+            "type": "integer",
+            "default": 465,
+            "env": "FILE_INSPECTOR_NOTIFICATIONS_EMAIL_PORT",
+            "minimum": 1,
+            "maximum": 65535
+        },
+        "from": {
+            "type": "string",
+            "default": "file_inspector@localhost.com",
+            "env": "FILE_INSPECTOR_NOTIFICATIONS_EMAIL_FROM",
+            "minLength": 1,
+            "maxLength": 64
+        },
+        "to": {
+            "type": "string",
+            "default": "",
+            "env": "FILE_INSPECTOR_NOTIFICATIONS_EMAIL_TO",
+            "minLength": 0
+        },
+        "сс": {
+            "type": "string",
+            "env": "FILE_INSPECTOR_NOTIFICATIONS_EMAIL_CC",
+            "minLength": 0
+        },
+        "bcc": {
+            "type": "string",
+            "env": "FILE_INSPECTOR_NOTIFICATIONS_EMAIL_BCC",
+            "minLength": 0
+        },
+        "subject": {
+            "type": "string",
+            "default": "file inspector",
+            "env": "FILE_INSPECTOR_NOTIFICATIONS_EMAIL_SUBJECT",
+            "minLength": 0
+        },
+        "secure": {
+            "type": "boolean",
+            "default": false,
+            "env": "FILE_INSPECTOR_NOTIFICATIONS_EMAIL_SECURE",
+            "enum": [true, false]
+        },
+        "ignore_tls": {
+            "type": "boolean",
+            "default": false,
+            "env": "FILE_INSPECTOR_NOTIFICATIONS_EMAIL_IGNORE_TLS",
+            "enum": [true, false]
+        }
+    },
+    "required": [
+        "enable",
+        "name",
+        "output_type",
+        "attempts",
+        "attempt_interval",
+        "host",
+        "port",
+        "from",
+        "to",
+        "subject",
+        "secure",
+        "ignore_tls"
+    ]
+}

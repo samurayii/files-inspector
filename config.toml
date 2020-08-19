@@ -1,0 +1,38 @@
+[logger]
+    mode = "debug"
+
+[cron]
+    interval = "*/10 * * * * *"
+    time_zone = "Europe/Moscow"
+
+[inspector]
+    folders = ["logs","logs2"]              
+    regexp = ["bad_text\\.(js|json)$"]
+
+[[notifications]]
+        enable = true
+        name = "email"
+        output_type = "email"
+        host = "smtp.localhost"
+        port = 465
+        from = "inspector@localhost.com"
+        to = ""
+        #cc = ""
+        #bcc = ""
+        subject = "empty"                 
+        secure = false                    
+        ignore_tls = false              
+        attempts = 2                       
+        attempt_interval = 10
+        [notifications.auth]        
+            type = "login"                                       
+            username = "mikeymike"                                         
+            password = "rapunz3l"                                           
+            client_id = "000000000000-xxx0.apps.googleusercontent.com" 
+            client_secret = "XxxxxXXxX0xxxxxxxx0XXxX0"                    
+            refresh_token = "1/XXxXxsss-xxxXXXXXxXxx0XXXxxXXx0x00xxx" 
+            access_token = "ya29.Xx_XX0xxxxx-xX0X0XxXXxXxXXXxX0x"     
+            expires = 1484314697598                               
+            access_url = "xxxxxx"                                                     
+            service_client = "113600000000000000000"                  
+            private_key = "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg..."

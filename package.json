@@ -1,13 +1,13 @@
 {
     "name": "file-inspector",
-    "version": "0.0.1",
+    "version": "0.1.1",
     "description": "Inspecting files in the source",
     "main": "index.js",
     "directories": {
         "lib": "lib"
     },
     "bin": {
-        "template-cli": "./index.js"
+        "file-inspector": "./index.js"
     },
     "scripts": {
         "up": "ncu && ncu -u && rimraf ./package-lock.json && npm i",
@@ -16,7 +16,8 @@
         "build": "rimraf ./dist && npm run lint && tsc && json-key-remover && ncp ./README.md ./dist/README.md",
         "lint": "eslint \"./src/**/*.{js,ts}\" --quiet --fix && tsc --noEmit",
         "lint:tests": "eslint \"./tests/**/*.{js,ts}\" --quiet --fix",
-        "test": "mocha -r ts-node/register --config ./tests/mocha.config.json"
+        "test": "mocha -r ts-node/register --config ./tests/mocha.config.json",
+        "start:dev": "ts-node ./src/index.ts --config ./config.toml"
     },
     "repository": {
         "type": "git",
@@ -34,17 +35,20 @@
     },
     "homepage": "https://github.com/samurayii/files-inspector.git#readme",
     "devDependencies": {
+        "@types/ajv": "^1.0.0",
         "@types/chalk": "^2.2.0",
+        "@types/cron": "^1.7.2",
         "@types/find-package-json": "^1.1.1",
-        "@types/mocha": "^8.0.0",
-        "@types/node": "^14.0.23",
-        "@typescript-eslint/eslint-plugin": "^3.6.1",
-        "@typescript-eslint/parser": "^3.6.1",
-        "eslint": "^7.4.0",
+        "@types/mocha": "^8.0.3",
+        "@types/node": "^14.6.0",
+        "@types/nodemailer": "^6.4.0",
+        "@typescript-eslint/eslint-plugin": "^3.9.1",
+        "@typescript-eslint/parser": "^3.9.1",
+        "eslint": "^7.7.0",
         "json-key-remover": "^0.0.2",
-        "mocha": "^8.0.1",
+        "mocha": "^8.1.1",
         "ncp": "^2.0.0",
-        "npm-check-updates": "^7.0.2",
+        "npm-check-updates": "^7.1.1",
         "rimraf": "^3.0.2",
         "ts-node": "^8.10.2",
         "typescript": "^3.9.7"
@@ -57,5 +61,16 @@
             "devDependencies",
             "scripts"
         ]
+    },
+    "dependencies": {
+        "ajv": "^6.12.4",
+        "chalk": "^4.1.0",
+        "commander": "^6.0.0",
+        "cron": "^1.8.2",
+        "find-package-json": "^1.2.0",
+        "handlebars": "^4.7.6",
+        "json-from-default-schema": "^0.1.2",
+        "jtomler": "0.0.5",
+        "nodemailer": "^6.4.11"
     }
 }

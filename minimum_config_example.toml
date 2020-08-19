@@ -1,0 +1,14 @@
+[inspector]                         # настройка инспектора
+    folders = [                     # папка для сканирования
+        "logs"
+    ]              
+    regexp = [                      # список регулярных выражений
+        "bad_text\\.(js|json)$"
+    ]
+
+[[notifications]]
+    enable = true                       # активация выхода
+    name = "email"                      # имя выхода
+    output_type = "email"               # тип выхода
+    host = "smtp.localhost"             # адрес сервера
+    to = ""                             # адресаты
