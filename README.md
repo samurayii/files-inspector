@@ -4,7 +4,9 @@
 
 Проверяет файлы по регулярным выражениям.
 
-install: `npm install file-inspector -g`
+install: `npm install -g file-inspector`
+
+update: `npm update -g file-inspector`
 
 ## Конфигурация.
 
